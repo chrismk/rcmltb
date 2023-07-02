@@ -14,7 +14,7 @@ from bot.helper.telegram_helper.filters import CustomFilters
 
 async def stats(client, message):
     if ospath.exists('.git'):
-        last_commit = await cmd_exec("git log -1 --date=short --pretty=format:'%cd <b>From</b> %cr'", True)
+        last_commit = await cmd_exec("git log -1 --date=short --pretty=format:'%cd <b>|</b> %cr'", True)
         last_commit = last_commit[0]
     else:
         last_commit = 'No UPSTREAM_REPO'
@@ -25,7 +25,7 @@ async def stats(client, message):
             f'<b>Bot启动时间:</b> {get_readable_time(time() - botUptime)}\n'\
             f'<b>系统启动时间:</b> {get_readable_time(time() - boot_time())}\n\n'\
             f'<b>硬盘总空间:</b> {get_readable_file_size(total)}\n'\
-            f'<b>已使用:</b> {get_readable_file_size(used)} | <b>Free:</b> {get_readable_file_size(free)}\n\n'\
+            f'<b>使用:</b> {get_readable_file_size(used)} | <b>剩余:</b> {get_readable_file_size(free)}\n\n'\
             f'<b>已上传:</b> {get_readable_file_size(net_io_counters().bytes_sent)}\n'\
             f'<b>已下载:</b> {get_readable_file_size(net_io_counters().bytes_recv)}\n\n'\
             f'<b>CPU:</b> {cpu_percent(interval=0.5)}%\n'\
@@ -33,7 +33,7 @@ async def stats(client, message):
             f'<b>硬盘:</b> {disk}%\n\n'\
             f'<b>CPU核心:</b> {cpu_count(logical=False)}\n'\
             f'<b>总核心:</b> {cpu_count(logical=True)}\n\n'\
-            f'<b>交换空间:</b> {get_readable_file_size(swap.total)} | <b>Used:</b> {swap.percent}%\n'\
+            f'<b>交换空间:</b> {get_readable_file_size(swap.total)} | <b>已用:</b> {swap.percent}%\n'\
             f'<b>总内存:</b> {get_readable_file_size(memory.total)}\n'\
             f'<b>内存剩余:</b> {get_readable_file_size(memory.available)}\n'\
             f'<b>内存已用:</b> {get_readable_file_size(memory.used)}\n'
