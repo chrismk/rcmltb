@@ -23,8 +23,8 @@ from .modules import batch, cancel, botfiles, copy, leech, mirror_leech, mirror_
 
 async def start(client, message):
     buttons = ButtonMaker()
-    buttons.url_buildbutton("农夫资源频道", "https://github.com/Sam-Max/rcmltb")
-    buttons.url_buildbutton("农夫资源群组", "https://github.com/Sam-Max")
+    buttons.url_buildbutton("农夫资源", "https://t.me/nongfuzy")
+    buttons.url_buildbutton("农夫网站", "https://nongfuzy.com")
     reply_markup = buttons.build_menu(2)
     if CustomFilters.user_filter or CustomFilters.chat_filter:
         msg = '''
