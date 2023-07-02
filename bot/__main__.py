@@ -23,14 +23,14 @@ from .modules import batch, cancel, botfiles, copy, leech, mirror_leech, mirror_
 
 async def start(client, message):
     buttons = ButtonMaker()
-    buttons.url_buildbutton("Repo", "https://github.com/Sam-Max/rcmltb")
-    buttons.url_buildbutton("Owner", "https://github.com/Sam-Max")
+    buttons.url_buildbutton("农夫资源频道", "https://github.com/Sam-Max/rcmltb")
+    buttons.url_buildbutton("农夫资源群组", "https://github.com/Sam-Max")
     reply_markup = buttons.build_menu(2)
     if CustomFilters.user_filter or CustomFilters.chat_filter:
         msg = '''
-**Hello, ¡Welcome to Rclone-Telegram-Bot!\n
-I can help you copy files from one cloud to another.
-I can also can mirror-leech files and links to Telegram or cloud**\n\n
+**你好,欢迎使用 农夫搬运机器人!\n
+此机器人可以将云盘中的文件相互搬运.
+也可以将TG中的文件搬运至云盘中**\n\n
         '''
         await sendMarkup(msg, message, reply_markup)
     else:
