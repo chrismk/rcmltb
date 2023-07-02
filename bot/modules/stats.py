@@ -34,8 +34,8 @@ async def stats(client, message):
             f'<b>CPU核心:</b> {cpu_count(logical=False)}\n'\
             f'<b>交换空间:</b> {get_readable_file_size(swap.total)} | <b>已用:</b> {swap.percent}%\n'\
             f'<b>内存:</b> {get_readable_file_size(memory.total)}\n'\
-            f'<b>已用:</b> {get_readable_file_size(memory.used)}\n'\    
-            f'<b>剩余:</b> {get_readable_file_size(memory.available)}\n'
+            f'<b>已用:</b> {get_readable_file_size(memory.used)}\n'\
+            f'<b>剩余:</b> {get_readable_file_size(memory.available)}\n'    
 
     await sendMessage(stats, message)
         
